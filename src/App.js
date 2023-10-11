@@ -25,8 +25,7 @@ function App() {
         setWeather(infos.weather)
       })
   }
-  console.log(cityInfos)
-  console.log(weather);
+
   return (
     <>
       <div className='w-full h-screen flex items-center justify-center '>
@@ -45,18 +44,23 @@ function App() {
                 type="text" className='bg-inherit border-none outline-none w-full' />
             </div>
           </div>
+          <p className='flex items-center'>
+            <span>city : </span> {cityInfos.name ? cityInfos.name: (
+              <img src="/33.gif" alt="" className='w-[40px]' />
+            )}
+          </p>
           <div className='flex flex-col items-center justify-center'>
             <img src={weather.length ? `http://openweathermap.org/img/w/${weather[0].icon}.png` : `/33.gif`} alt="rain img" className='w-[200px]' />
             <div className='flex items-center flex-col justify-center'>
               <span className='text-[35px] font-bold flex items-center'>
                 {cityInfos.main ? cityInfos.main.temp : (
-                  <img src="/33.gif" alt=""  className='w-[40px]'/>
+                  <img src="/33.gif" alt="" className='w-[40px]' />
                 )} C°
               </span>
               <p className='font-bold text-xl text-gray-600 flex items-center'>
-             <span className='text-gray-400'> Temperature status:</span>
-               {weather.length ? weather[0].main : (
-                  <img src="/33.gif" alt=""  className='w-[40px]'/>
+                <span className='text-gray-400'> Temperature status:</span>
+                {weather.length ? weather[0].main : (
+                  <img src="/33.gif" alt="" className='w-[40px]' />
                 )}
               </p>
             </div>
@@ -67,7 +71,7 @@ function App() {
               <div className='flex flex-col items-start justify-center'>
                 <span className='flex items-center'>
                   {cityInfos.wind ? cityInfos.wind.speed : (
-                  <img src="/33.gif" alt=""  className='w-[40px]'/>
+                    <img src="/33.gif" alt="" className='w-[40px]' />
                   )} KM/H
                 </span>
                 <span>
@@ -80,7 +84,7 @@ function App() {
               <div className='flex flex-col items-start justify-center'>
                 <span className='flex items-center'>
                   {cityInfos.main ? cityInfos.main.humidity : (
-                  <img src="/33.gif" alt=""  className='w-[40px]'/>
+                    <img src="/33.gif" alt="" className='w-[40px]' />
                   )} %
                 </span>
                 <span>
